@@ -1,12 +1,12 @@
 /*
 ===========================================================
-JAVA PROGRAMMING ELEMENTS LAB PRACTICE
-Author      : KISHORE
+JAVA CONTROL FLOW LAB PRACTICE
+Author      : Your Name
 Date        : 03-03-2026
 Description : Level 1, Level 2 and Level 3 Programs
-Concepts    : Comments, Variables, Data Types,
-              Arithmetic Operators, Operator Precedence,
-              Type Conversion, User Input
+Concepts    : Control Flow, Boolean, Logical Operators,
+              if-else, switch, for loop, while loop,
+              break, continue
 ===========================================================
 */
 
@@ -14,31 +14,36 @@ import java.util.Scanner;
 
 /* =========================================================
    LEVEL 1 - PROGRAM 1
-   SIMPLE INTEREST CALCULATOR
+   CHECK WHETHER NUMBER IS POSITIVE, NEGATIVE OR ZERO
 ========================================================= */
-class SimpleInterestCalculator {
+class NumberCheck {
 
     public static void main(String[] args) {
 
+        // Create Scanner object
         Scanner input = new Scanner(System.in);
 
-        double principalAmount;
-        double rateOfInterest;
-        double timePeriod;
-        double simpleInterest;
+        // Variable declaration
+        int number;
+        boolean isPositive;
+        boolean isNegative;
 
-        System.out.print("Enter Principal Amount: ");
-        principalAmount = input.nextDouble();
+        // Taking user input
+        System.out.print("Enter a number: ");
+        number = input.nextInt();
 
-        System.out.print("Enter Rate of Interest: ");
-        rateOfInterest = input.nextDouble();
+        // Boolean expressions
+        isPositive = number > 0;
+        isNegative = number < 0;
 
-        System.out.print("Enter Time (in years): ");
-        timePeriod = input.nextDouble();
-
-        simpleInterest = (principalAmount * rateOfInterest * timePeriod) / 100;
-
-        System.out.println("Simple Interest = " + simpleInterest);
+        // Conditional statements
+        if (isPositive) {
+            System.out.println("Number is Positive");
+        } else if (isNegative) {
+            System.out.println("Number is Negative");
+        } else {
+            System.out.println("Number is Zero");
+        }
 
         input.close();
     }
@@ -46,24 +51,27 @@ class SimpleInterestCalculator {
 
 /* =========================================================
    LEVEL 1 - PROGRAM 2
-   AREA OF CIRCLE
+   CHECK ELIGIBILITY TO VOTE
 ========================================================= */
-class AreaOfCircle {
+class VotingEligibility {
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        double radius;
-        double pi = 3.14159;
-        double area;
+        int age;
+        boolean isEligible;
 
-        System.out.print("Enter Radius: ");
-        radius = input.nextDouble();
+        System.out.print("Enter your age: ");
+        age = input.nextInt();
 
-        area = pi * radius * radius;
+        isEligible = age >= 18;
 
-        System.out.println("Area of Circle = " + area);
+        if (isEligible) {
+            System.out.println("You are Eligible to Vote.");
+        } else {
+            System.out.println("You are Not Eligible to Vote.");
+        }
 
         input.close();
     }
@@ -71,31 +79,27 @@ class AreaOfCircle {
 
 /* =========================================================
    LEVEL 1 - PROGRAM 3
-   SWAP TWO NUMBERS
+   MULTIPLICATION TABLE USING FOR LOOP
 ========================================================= */
-class SwapTwoNumbers {
+class MultiplicationTable {
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        int firstNumber;
-        int secondNumber;
-        int temporaryVariable;
+        int number;
+        int counter;
+        int result;
 
-        System.out.print("Enter First Number: ");
-        firstNumber = input.nextInt();
+        System.out.print("Enter a number: ");
+        number = input.nextInt();
 
-        System.out.print("Enter Second Number: ");
-        secondNumber = input.nextInt();
+        // For loop
+        for (counter = 1; counter <= 10; counter++) {
 
-        temporaryVariable = firstNumber;
-        firstNumber = secondNumber;
-        secondNumber = temporaryVariable;
-
-        System.out.println("After Swapping:");
-        System.out.println("First Number = " + firstNumber);
-        System.out.println("Second Number = " + secondNumber);
+            result = number * counter;
+            System.out.println(number + " x " + counter + " = " + result);
+        }
 
         input.close();
     }
@@ -103,31 +107,28 @@ class SwapTwoNumbers {
 
 /* =========================================================
    LEVEL 1 - PROGRAM 4
-   AVERAGE OF THREE NUMBERS
+   SUM OF NUMBERS USING WHILE LOOP
 ========================================================= */
-class AverageCalculator {
+class SumUsingWhile {
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        double number1;
-        double number2;
-        double number3;
-        double average;
+        int limit;
+        int counter = 1;
+        int sum = 0;
 
-        System.out.print("Enter First Number: ");
-        number1 = input.nextDouble();
+        System.out.print("Enter limit: ");
+        limit = input.nextInt();
 
-        System.out.print("Enter Second Number: ");
-        number2 = input.nextDouble();
+        // While loop
+        while (counter <= limit) {
+            sum = sum + counter;
+            counter++;
+        }
 
-        System.out.print("Enter Third Number: ");
-        number3 = input.nextDouble();
-
-        average = (number1 + number2 + number3) / 3;
-
-        System.out.println("Average = " + average);
+        System.out.println("Sum = " + sum);
 
         input.close();
     }
@@ -135,23 +136,31 @@ class AverageCalculator {
 
 /* =========================================================
    LEVEL 2 - PROGRAM 1
-   TEMPERATURE CONVERTER
+   GRADE CALCULATOR USING IF-ELSE IF
 ========================================================= */
-class TemperatureConverter {
+class GradeCalculator {
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        double celsiusTemperature;
-        double fahrenheitTemperature;
+        int marks;
+        String grade;
 
-        System.out.print("Enter Temperature in Celsius: ");
-        celsiusTemperature = input.nextDouble();
+        System.out.print("Enter Marks: ");
+        marks = input.nextInt();
 
-        fahrenheitTemperature = (celsiusTemperature * 9 / 5) + 32;
+        if (marks >= 90) {
+            grade = "A";
+        } else if (marks >= 75) {
+            grade = "B";
+        } else if (marks >= 50) {
+            grade = "C";
+        } else {
+            grade = "Fail";
+        }
 
-        System.out.println("Temperature in Fahrenheit = " + fahrenheitTemperature);
+        System.out.println("Grade = " + grade);
 
         input.close();
     }
@@ -159,28 +168,58 @@ class TemperatureConverter {
 
 /* =========================================================
    LEVEL 2 - PROGRAM 2
-   SALARY CALCULATOR
+   SIMPLE CALCULATOR USING SWITCH
 ========================================================= */
-class SalaryCalculator {
+class SimpleCalculator {
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        double basicSalary;
-        double hra;
-        double da;
-        double totalSalary;
+        double number1;
+        double number2;
+        double result;
+        int choice;
 
-        System.out.print("Enter Basic Salary: ");
-        basicSalary = input.nextDouble();
+        System.out.println("1. Addition");
+        System.out.println("2. Subtraction");
+        System.out.println("3. Multiplication");
+        System.out.println("4. Division");
 
-        hra = basicSalary * 0.20;
-        da = basicSalary * 0.10;
+        System.out.print("Enter your choice: ");
+        choice = input.nextInt();
 
-        totalSalary = basicSalary + hra + da;
+        System.out.print("Enter First Number: ");
+        number1 = input.nextDouble();
 
-        System.out.println("Total Salary = " + totalSalary);
+        System.out.print("Enter Second Number: ");
+        number2 = input.nextDouble();
+
+        switch (choice) {
+
+            case 1:
+                result = number1 + number2;
+                System.out.println("Result = " + result);
+                break;
+
+            case 2:
+                result = number1 - number2;
+                System.out.println("Result = " + result);
+                break;
+
+            case 3:
+                result = number1 * number2;
+                System.out.println("Result = " + result);
+                break;
+
+            case 4:
+                result = number1 / number2;
+                System.out.println("Result = " + result);
+                break;
+
+            default:
+                System.out.println("Invalid Choice");
+        }
 
         input.close();
     }
@@ -188,34 +227,42 @@ class SalaryCalculator {
 
 /* =========================================================
    LEVEL 3 - PROGRAM 1
-   OPERATOR PRECEDENCE DEMONSTRATION
+   PRIME NUMBER CHECK WITH BREAK AND CONTINUE
 ========================================================= */
-class OperatorPrecedenceDemo {
+class PrimeNumberCheck {
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        int number1;
-        int number2;
-        int number3;
-        int result;
+        int number;
+        int counter;
+        boolean isPrime = true;
 
-        System.out.print("Enter First Number: ");
-        number1 = input.nextInt();
+        System.out.print("Enter a number: ");
+        number = input.nextInt();
 
-        System.out.print("Enter Second Number: ");
-        number2 = input.nextInt();
+        if (number <= 1) {
+            isPrime = false;
+        } else {
 
-        System.out.print("Enter Third Number: ");
-        number3 = input.nextInt();
+            for (counter = 2; counter < number; counter++) {
 
-        result = number1 + number2 * number3;
-        System.out.println("Result (without brackets) = " + result);
+                if (number % counter == 0) {
+                    isPrime = false;
+                    break;   // break statement
+                } else {
+                    continue; // continue statement
+                }
+            }
+        }
 
-        result = (number1 + number2) * number3;
-        System.out.println("Result (with brackets) = " + result);
+        if (isPrime) {
+            System.out.println("Number is Prime");
+        } else {
+            System.out.println("Number is Not Prime");
+        }
 
         input.close();
     }
-}
+} 
