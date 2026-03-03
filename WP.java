@@ -213,9 +213,9 @@ class OperatorPrecedenceDemo {
         result = number1 + number2 * number3;
         System.out.println("Result (without brackets) = " + result);
 
-        result = (number1 + number2) * number3;
+        result = (number2 + number2) * number3;
         System.out.println("Result (with brackets) = " + result);
 
         input.close();
     }
-}
+} 
